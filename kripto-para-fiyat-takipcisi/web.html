@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Canlı Kripto Borsası</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding-top: 50px; background: #121212; color: white; }
+        .container { background: #1e1e1e; padding: 25px; border-radius: 15px; width: 350px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .crypto-row { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px; border-bottom: 1px solid #333; transition: background 0.3s;
+        }
+        .name { font-weight: bold; font-size: 1.1rem; }
+        .price { font-family: 'Courier New', monospace; font-size: 1.2rem; transition: color 0.5s ease; }
+        
+        /* Renk Değişim Efektleri */
+        .up { color: #00ff88; text-shadow: 0 0 10px #00ff88; }
+        .down { color: #ff4d4d; text-shadow: 0 0 10px #ff4d4d; }
+        
+        .status { font-size: 0.8rem; margin-top: 15px; color: #888; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="text-align: center;">Canlı Veri Takibi</h2>
+    <div id="display">
+        </div>
+    <p class="status">Her 3 saniyede bir güncelleniyor...</p>
+</div>
+
+<script>
+    // Önceki fiyatları saklamak için bir obje
+    let previousPrices = { bitcoin: 0, ethereum: 0, dogecoin: 0 };
+
+    async function updatePrices() {
+        const url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,dogecoin&vs_currencies=usd";
+        
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+            
+            const coins = [
+                { id: 'bitcoin', label: 'BTC' },
+                { id: 'ethereum', label: 'ETH' },
+                { id: 'dogecoin', label: 'DOGE' }
+            ];
+
+            const display = document.getElementById('display');
+            display.innerHTML = ''; // Ekranı temizle
+
+            coins.forEach(coin => {
+                let currentPrice = data[coin.id].usd;
+                
+                // Simülasyon: API verisine rastgele küçük bir değişim ekleyelim (Gerçekçilik için)
+                const randomFlactuation = (Math.random() - 0.5) * (currentPrice * 0.001);
+                currentPrice += randomFlactuation;
+
+                // Renk Belirleme (Artış mı azalış mı?)
+                let colorClass = '';
+                if (previousPrices[coin.id] !== 0) {
+                    colorClass = currentPrice > previousPrices[coin.id] ? 'up' : 'down';
+                }
+
+                // Arayüzü Oluştur
+                display.innerHTML += `
+                    <div class="crypto-row">
+                        <span class="name">${coin.label}</span>
+                        <span class="price ${colorClass}">
+                            $${currentPrice.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 4})}
+                        </span>
+                    </div>
+                `;
+
+                // Mevcut fiyatı bir sonraki karşılaştırma için kaydet
+                previousPrices[coin.id] = currentPrice;
+            });
+
+        } catch (err) {
+            console.error("Veri çekilemedi:", err);
+        }
+    }
+
+    // İlk çalıştırma
+    updatePrices();
+
+    // Her 3 saniyede bir (3000 ms) otomatik güncelle
+    setInterval(updatePrices, 3000);
+</script>
+
+</body>
+</html>

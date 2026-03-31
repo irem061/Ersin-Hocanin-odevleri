@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>SaklıBahçe Cafe</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background-color:#f5efe6;
+}
+
+header{
+    background-color:#4e342e;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+header img{
+    width:90%;
+    max-width:600px;
+    margin-top:15px;
+    border-radius:10px;
+}
+
+nav{
+    background-color:#6d4c41;
+    text-align:center;
+    padding:12px;
+}
+
+nav button{
+    background-color:#8d6e63;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    margin:5px;
+    cursor:pointer;
+}
+
+nav button:hover{
+    background-color:#5d4037;
+}
+
+.container{
+    padding:20px;
+}
+
+.section{
+    display:none;
+    background-color:white;
+    padding:20px;
+    border-radius:8px;
+}
+
+.urun{
+    border-bottom:1px solid #ccc;
+    padding:8px 0;
+}
+
+.fiyat{
+    float:right;
+    font-weight:bold;
+    color:#4e342e;
+}
+
+footer{
+    background-color:#4e342e;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+}
+</style>
+
+<script>
+function goster(id){
+    var bolumler = document.getElementsByClassName("section");
+    for(var i=0;i<bolumler.length;i++){
+        bolumler[i].style.display="none";
+    }
+    document.getElementById(id).style.display="block";
+}
+</script>
+</head>
+
+<body>
+
+<header>
+<h1>☕ SaklıBahçe Cafe</h1>
+<p>Şehrin İçinde Saklı Lezzetler</p>
+<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=80">
+</header>
+
+<nav>
+<button onclick="goster('kahve')">Kahveler</button>
+<button onclick="goster('tatli')">Tatlılar</button>
+<button onclick="goster('soguk')">Soğuk İçecekler</button>
+<button onclick="goster('iletisim')">Rezervasyon</button>
+</nav>
+
+<div class="container">
+
+<!-- KAHVELER -->
+<div class="section" id="kahve">
+<h2>☕ Kahveler</h2>
+
+<div class="urun">Espresso <span class="fiyat">120 TL</span></div>
+<div class="urun">Americano <span class="fiyat">130 TL</span></div>
+<div class="urun">Latte <span class="fiyat">150 TL</span></div>
+<div class="urun">Cappuccino <span class="fiyat">150 TL</span></div>
+<div class="urun">Mocha <span class="fiyat">160 TL</span></div>
+<div class="urun">Filtre Kahve <span class="fiyat">140 TL</span></div>
+<div class="urun">Türk Kahvesi <span class="fiyat">110 TL</span></div>
+
+</div>
+
+<!-- TATLILAR -->
+<div class="section" id="tatli">
+<h2>🍰 Tatlılar</h2>
+
+<div class="urun">Cheesecake <span class="fiyat">180 TL</span></div>
+<div class="urun">Brownie <span class="fiyat">160 TL</span></div>
+<div class="urun">Tiramisu <span class="fiyat">190 TL</span></div>
+<div class="urun">San Sebastian <span class="fiyat">200 TL</span></div>
+<div class="urun">Sufle <span class="fiyat">170 TL</span></div>
+<div class="urun">Magnolia <span class="fiyat">160 TL</span></div>
+
+</div>
+
+<!-- SOĞUK -->
+<div class="section" id="soguk">
+<h2>🥤 Soğuk İçecekler</h2>
+
+<div class="urun">Ice Latte <span class="fiyat">160 TL</span></div>
+<div class="urun">Ice Americano <span class="fiyat">150 TL</span></div>
+<div class="urun">Milkshake <span class="fiyat">170 TL</span></div>
+<div class="urun">Limonata <span class="fiyat">120 TL</span></div>
+<div class="urun">Soğuk Çay <span class="fiyat">110 TL</span></div>
+
+</div>
+
+<!-- İLETİŞİM -->
+<div class="section" id="iletisim">
+<h2>📞 Rezervasyon</h2>
+<p>Rezervasyon ve bilgi için bizi arayın:</p>
+<p><b>Telefon: 05xx xxx xx xx</b></p>
+<p>SaklıBahçe Cafe – huzurlu ortam, kaliteli kahve ☕</p>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 SaklıBahçe Cafe</p>
+</footer>
+
+<script>
+goster('kahve');
+</script>
+
+</body>
+</html>
