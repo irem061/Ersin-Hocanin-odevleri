@@ -1,1 +1,1 @@
-# kripto-para-fiyat-takipcisi
+# web 7.hafta kripto-para-fiyat-takipcisi odev
