@@ -1,0 +1,156 @@
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ana arka planı düz siyah yerine derin bir uzay boşluğu gibi yaptık */
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: radial-gradient(circle, #101520 0%, #050505 100%);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Kartın arka planını cam gibi derin ve mavi parıltılı hale getirdik */
+.todo-card {
+  background: #0a0e17;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid #00d2ff; /* Neon yeşil yerine siber mavi border */
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 20px 50px rgba(0, 210, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* Üst etiket rengi değişti */
+.label {
+  color: #00d2ff;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+h1 {
+  color: #fff;
+  margin: 10px 0 5px; /* Alt boşluk azaldı çünkü altına sayaç gelecek */
+  font-size: 32px;
+  font-weight: 800;
+}
+
+/* Sayaç Metni Stili */
+.todo-count {
+  font-size: 13px;
+  color: #888;
+  display: block;
+  margin-bottom: 25px;
+}
+
+.input-box {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+input {
+  flex: 1;
+  background: #141b26;
+  border: 1px solid #232d3d;
+  padding: 14px;
+  border-radius: 12px;
+  color: white;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #00d2ff;
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+}
+
+/* Ekle butonu artık parlak mavi ve hover efektli */
+button {
+  background: #00d2ff;
+  color: #050505;
+  border: none;
+  padding: 0 24px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #33ddff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3);
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Görev satırları */
+.todo-list li {
+  background: #101622;
+  margin-bottom: 12px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #eee;
+  border-left: 3px solid #00d2ff;
+  transition: all 0.3s ease;
+}
+
+/* Tamamlanan görevlerin soluklaşması */
+.todo-list li.completed {
+  border-left-color: #3a4b5e;
+  background: #141b26;
+}
+
+.todo-text {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Sil butonu rengi ve hover geçişi ayarlandı */
+.del-btn {
+  background: rgba(255, 68, 68, 0.1) !important; /* Global button stilini ezmek için */
+  color: #ff4444 !important;
+  border: 1px solid rgba(255, 68, 68, 0.2) !important;
+  padding: 8px 14px !important;
+  font-size: 12px;
+  border-radius: 8px !important;
+}
+
+.del-btn:hover {
+  background: #ff4444 !important;
+  color: #fff !important;
+  transform: scale(1.05);
+  box-shadow: 0 5px 10px rgba(255, 68, 68, 0.2);
+}
+
+/* Boş liste uyarısı */
+.empty-state {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.empty {
+  color: #5d6d7e;
+  font-size: 14px;
+  margin: 0;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İzleme Listem</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="wrapper">
+        
+        <div class="glass-card">
+            <header class="app-header">
+                <div class="branding">
+                    <i class='bx bx-camera-movie'></i>
+                    <h1>CineList</h1>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="mode-trigger" onclick="switchTheme()">
+                    <span class="slider"></span>
+                </label>
+            </header>
+
+            <section class="main-body">
+                <div class="text-center">
+                    <h3>Keşfettiğin Yapımları Kaydet</h3>
+                    <p>İzlemek istediğin dizi ve filmleri buraya not edebilirsin.</p>
+                </div>
+
+                <div class="search-box">
+                    <i class='bx bx-search-alt'></i>
+                    <input type="text" id="movie-name" placeholder="Dizi veya film adı yazın...">
+                    <button class="submit-btn" onclick="addNewContent()">
+                        <i class='bx bx-plus'></i>
+                    </button>
+                </div>
+
+                <div class="list-container">
+                    <ul id="content-list">
+                        <li class="list-item">
+                            <span>Inception</span>
+                            <div class="actions">
+                                <button class="check-btn"><i class='bx bx-check'></i></button>
+                                <button class="delete-btn"><i class='bx bx-trash'></i></button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <footer class="app-footer">
+                <button class="reset-btn" onclick="wipeAll()">
+                    <i class='bx bx-eraser'></i> Tümünü Sıfırla
+                </button>
+                <small class="storage-info">
+                    <i class='bx bx-hdd'></i> Tarayıcı hafızası aktif.
+                </small>
+            </footer>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
