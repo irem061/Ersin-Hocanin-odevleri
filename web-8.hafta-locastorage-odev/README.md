@@ -1,0 +1,1 @@
+# web-8.hafta-locastorage-odev
